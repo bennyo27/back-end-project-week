@@ -11,3 +11,7 @@ const server = express();
 // server use
 server.use(express.json());
 server.use(cors());
+
+module.exports = {
+  server
+};

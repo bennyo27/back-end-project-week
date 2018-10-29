@@ -14,5 +14,8 @@
     "lock": "^1.1.0",
     "nodemon": "^1.18.5",
     "sqlite": "^3.0.0"
+  },
+  "scripts": {
+    "server": "nodemon ./server/index.js"
   }
 }

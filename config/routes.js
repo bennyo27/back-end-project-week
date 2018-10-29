@@ -19,7 +19,7 @@ function getNotes(req, res) {
 
 function createNote(req, res) {
   const newNote = req.body;
-  db("users")
+  db("notes")
     .insert(newNote)
     .then(ids => res.status(201).json(ids[0]))
     .catch(err =>
@@ -29,7 +29,7 @@ function createNote(req, res) {
 
 function viewNote(req, res) {
   const { id } = req.params;
-  db("users")
+  db("notes")
     .where({ id })
     .then(note => res.status(200).json(note))
     .catch(err =>
@@ -42,7 +42,7 @@ function viewNote(req, res) {
 function editNote(req, res) {
   const { id } = req.params;
   const changes = req.body;
-  db("users")
+  db("notes")
     .where({ id })
     .update(changes)
     .then(note => res.status(200).json(note))
@@ -55,7 +55,7 @@ function editNote(req, res) {
 
 function deleteNote(req, res) {
   const { id } = req.params;
-  db("users")
+  db("notes")
     .where({ id })
     .del()
     .then(note => res.status(200).json(note))
